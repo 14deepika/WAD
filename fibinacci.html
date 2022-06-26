@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <h1> Fibinacci, Factorial, Prime , palindrome</h1>
+        <h3> Design an HTML having a text box and four buttons for Factorial, Fibonacci ,
+             Prime, and Palindrome. When a button is pressed an appropriate javascript function should be called to display</h3>
+             <h3>1. Factorial of that number</h3>
+             <h3>2. Fibonacci series up to that number</h3>
+             <h3>3. Prime numbers up to that number</h3>
+             <h3>4.Is it palindrome or not</h3>
+
+             <style>
+                 h1{
+                     color: rgb(173, 32, 0);
+                
+                 }
+                 h3{
+                     color: rgb(0, 0, 0);
+                 }
+
+                 button{
+                     color: rgb(0, 116, 0);
+                     background-color: rgb(190, 220, 106);
+                 }
+                 p{
+                     color: rgb(45, 0, 42);
+                 }
+             </style>
+
+
+             <script>
+                 function fact(){
+                     var i , num, f;
+                     f=1;
+                     num = document.getElementById("num").value;
+                     for(i=1; i<=num ; i++){
+                         f = f*i;
+                     }
+                     i=i-1;
+                     document.getElementById("res").innerHTML = "The factorial of the number"+ i +" is : "+ f;
+
+                 }
+
+
+                 function fibo(){
+                     num = document.getElementById("num").value;
+                     result ="";
+                     var n1=0, n2=1 ; nextTerm;
+                     for(var i=1 ; i<=num; i++){
+                         result = result + n1 + ",";
+                         nextTerm = n1+n2;
+                         n1 = n2;
+                         n2 = nextTerm;
+                     }
+                     document.getElementById("res").innerHTML = "The fibonacci series up to"+ num +" are : "+ result;
+                 }
+
+                function prime(){
+                    num = document.getElementById("num").value;
+                    resulr="";
+                    for(let i=2 ; i<=num ; i++){
+                        let flag=0;
+                        for(let j=2 ; j<i ; j++){
+                            if(i%j==0){
+                                flag=1;
+                                break;
+                            }
+                        }
+                        if(flag==0){
+                            result = result + i + ",";
+                        }
+                    }
+                    document.getElementById("res").innerHTML="The Prime number up to" + num + "are :" + result;
+                }
+
+
+                function isPalindrome(){
+                    num = document.getElementById("num").value;
+                    result ="";
+                    let n = num;
+                    let rev = 0;
+                    while(num!=0){
+                        let r = num%10;
+                        rev = rev*10+r;
+                        num = Math.floor(num/10);
+                    }
+                    if(rev==n){
+                        result="is palindrome";
+                    }
+                    else{
+                        result="is not a palindrome";
+                    }
+                    document.getElementById("res").innerHTML="The given number"+ n + " "+result;
+                }
+
+
+
+
+             </script>
+    </head>
+    <body>
+        <p>Enter a number:<input id="num"><br><br></p>
+        <button onclick="fact()">Factorial</button>
+        <button onclick="fibo()">Fibonacci</button>
+        <button onclick="prime()">Prime</button>
+        <button onclick="isPalindrome()">Palindrome</button><br>
+        <p id="res" ></p><br>
+        
+    </body>
+</html>
