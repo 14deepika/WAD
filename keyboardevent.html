@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<style>
+   body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+   }
+   .result {
+      font-size: 18px;
+      color: blueviolet;
+      font-weight: 500;
+   }
+</style>
+</head>
+<body>
+<h1>Key-events in JavaScript</h1>
+<div class="result"></div>
+<h3>Press or release key to see the keyevent fired</h3>
+<script>
+   let resEle = document.querySelector(".result");
+   document.body.addEventListener("keydown", () => {
+      resEle.innerHTML = "Hello, Have a nice day <br>";
+   });
+   document.body.addEventListener("keyup", () => {
+      resEle.innerHTML = "Hello, Have a nice day";
+   });
+   document.body.addEventListener("keypress", () => {
+      resEle.innerHTML += "Hello, Have a nice day";
+   });
+</script>
+</body>
+</html>
